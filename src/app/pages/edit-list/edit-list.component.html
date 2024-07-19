@@ -1,0 +1,33 @@
+<div class="centercontent">
+  <div class="createList">
+    <div class="title"><h2>Edit List</h2></div>
+     
+      <div class="selected">
+       
+        <div class="selected-date" *ngIf="selectedDate"> <span class="icon">
+          <i class="fa fa-calendar"></i>
+        </span>{{ selectedDate | date: 'dd/MM/yyyy' }}</div>
+        <div class="selected-time-range">
+          <div class="selected-List" *ngIf="selectedList">
+            <span class="icon">
+              <i class="fa-solid fa-rectangle-list"></i>
+          </span> {{selectedList}}</div>
+        </div>
+      </div>
+      <label for="listtitle"></label>
+      <input id="listtitle" #listtitle type="text" placeholder="Enter the title">
+      <div class="errormessage1" *ngIf="errormessage1">
+        <p>{{errormessage1}}</p>
+      </div>
+      <div class="buttons">
+        <button id="add" (click)="editList(listtitle.value,selectedDate!)">Save</button>
+        <span><button id="cancel" (click)="goback()">Back</button></span>
+      </div>
+      <div class="message" *ngIf="message">
+        <p>{{message}}</p>
+      </div>
+      <div *ngIf="errormessage">
+        <p>{{errormessage}}</p>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="centercontent">
+    <div class="createTask">
+     <div class="title"><h2>Edit task</h2></div>  
+       <div class="selected">
+        <div class="selected-date" *ngIf="selectedDate"> <span class="icon">
+          <i class="fa fa-calendar"></i>
+        </span> {{ selectedDate | date: 'dd/MM/yyyy' }}</div>
+        <div class="selected-list" *ngIf="listTitle"><span class="icon">
+          <i class="fa-solid fa-rectangle-list"></i>
+      </span> {{listTitle}}</div>
+        <div class="selected-task" *ngIf="selectedTask">
+          <span class="icon">
+            <i class="fa-solid fa-clipboard-check"></i></span>
+           {{selectedTask}}</div>
+        </div>
+        <label for="tasktitle"></label>
+      <input id="tasktitle" #tasktitle type="text" id="tasktitle" placeholder="Enter the task">
+      <div class="errormessage1" *ngIf="errormessage1">
+        <p>{{errormessage1}}</p>
+      </div>
+      <div class="buttons">
+        <button  id="add"  (click)="EditTask(tasktitle.value)">Save</button>
+        <span><button id="cancel" (click)="goback()" >Back</button></span>
+    </div>
+    <div class="message" *ngIf="message">
+      <p>{{message}}</p>
+    </div>
+    <div class="errormessage" *ngIf="errormessage">
+        <p>{{errormessage}}</p>
+      </div>
+    </div>
+</div>
+
+

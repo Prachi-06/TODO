@@ -1,0 +1,267 @@
+
+.taskmanagement{
+    height:100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0;
+}
+.taskmanagement .time{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-right: 100px;
+    margin-bottom: 250px;
+}
+.taskmanagement .taskview{
+    display: flex;
+    height: 500px;
+    width: 1000px;
+    overflow: hidden;
+    
+}
+.taskmanagement .taskview .list{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: white;
+    padding: 35px;
+}
+.taskmanagement .taskview .tasks{
+    display: flex;
+    flex-grow: 1;
+    background-color: aliceblue;
+    padding: 35px;
+}
+h2{
+    color: turquoise;
+    text-transform: uppercase;
+}
+.list .listitemscont{
+    height: 70%;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.list .listitemscont .listitem span{
+    color : black
+}
+.list .listitemscont .dropdown .dropdown-trigger .button{
+    background-color: turquoise;
+    color: white; /* Add this to ensure text is visible */
+}
+
+.list .listitemscont .listitem .dropdown  .dropdown-trigger .button{
+    height: 30px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    margin-top: 10px;
+    border-radius: 5px;
+    border:0;
+    margin-left: 5px;
+} 
+.list .listitemscont .listitem .dropdown  .dropdown-trigger .button:hover{
+
+  background-color: lightgray;
+}
+
+.list .listitemscont .listitem .dropdownselected{
+    background-color: turquoise;
+}
+
+
+
+.list .listitemscont .listitem:hover{
+    
+    cursor:pointer;
+}
+.list .listitemscont .listitem:active{
+    transform: scale(0.95);
+}
+
+
+.list .addlist{
+    background-color:  rgb(52, 234, 52);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 200px;
+    position: absolute;
+    bottom: 20px;
+    border-radius: 10px;
+    transition: ease 0.2s;
+    border: 0;
+    top: 540px;
+    font-size: large;
+   
+}
+.list .addlist:hover{
+    cursor: pointer;
+    background-color:lawngreen;
+    color: white;
+}
+.list .addlist:active{
+    transform: scale(0.95);
+}
+.tasks{
+    position: relative;
+}
+.tasks .taskitemscont{
+    position: absolute;
+    margin-top: 70px;
+   margin-left: 0;
+}
+.tasks .taskitemscont {
+    position: absolute;
+    margin-top: 70px;
+    margin-left: 0;
+    height: 400px; /* Set a fixed height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin-top: 40px;
+}
+
+.tasks .taskitemscont .taskitem {
+    display: flex;
+    align-items: center;
+    width: 600px;
+    height: 45px;
+    background-color: white;
+    padding: 5px;
+    padding-left: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: ease 0.2s;
+    
+}
+.tasks .taskitemscont::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar */
+}
+
+.addtask{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 1370px;
+    top: 530px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: greenyellow;
+    transition: ease 0.2s;
+
+
+}
+ .addtask span{
+    font-size: x-large;
+ }
+ .addtask:hover{
+    background-color: green;
+    cursor: pointer;
+    color: white;
+ }
+ .tasks .taskitemscont .taskitem:not(.completed):hover{
+    box-shadow: 0 4px 8px 0 gray;
+    cursor: pointer;
+
+ }
+ .tasks .taskitemscont .taskitem:not(.completed):hover .task-buttons{
+    opacity: 1;
+    transition: opacity 0.2s; transform: 0.2s;
+    transform: scale(1)
+ }
+ .tasks .taskitemscont .taskitem .task-buttons{
+    opacity: 0;
+    transform: scale(0.5);
+ }
+ .tasks .taskitemscont .taskitem:not(.completed):active{
+    transform: scale(0.95);
+ }
+ .tasks .taskitemscont .taskitem.completed{
+    text-decoration: line-through;
+   opacity: 0.6;
+ }
+ .tasks .taskitemscont .taskitem{
+    display: flex;
+    
+ }
+ .tasks .taskitemscont .taskitem.task-text{
+    flex-grow: 1;
+}
+.tasks .taskitemscont .taskitem{
+    align-items: center;
+}
+ .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 40px;
+    max-width: 200px;
+    min-width: 60px;
+    z-index: 2;
+    top:120px;
+    left: 1000px;
+    font-size: x-large;
+    background-color: white;
+    border-radius: 7px;
+ }
+.search input{
+    height: 30px;
+    border: none;
+   border-radius: 5px;
+   border: 0;
+   outline: 0;
+}
+.calendar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    top:100px;
+    left: 10px;
+    font-size: x-large;
+    border-radius: 7px;
+}
+button.example-custom-date-class {
+    background: orange;
+    border-radius: 100%;
+  }
+  .time{
+    top: 200px;
+    left: 10px;
+    
+  }
+  .taskview .list .listitemscont .listitem #listitemname #startTime {
+      font-size: x-small;
+      margin-right: 20px;
+      top: 0;
+      margin-left: 10px;
+  }
+  
+  .taskview .list .listitemscont .listitem #listitemname #endTime {
+    font-size: x-small;
+    margin-left: 20px;
+    top: 0;
+    margin-right: 10px;
+    
+  }
+  .taskview .tasks .topbar .dropdown{
+    
+       position: absolute;
+       right: 20px;
+       top: 10px;
+        
+        
+      
+  }
+  
+
+

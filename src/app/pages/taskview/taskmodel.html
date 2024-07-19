@@ -1,0 +1,44 @@
+<div class="taskview">
+    <div class="tasks">
+      <div class="topbar">
+        <div class="title">
+          <h2>Tasks</h2>
+        </div>
+        <div class="dropdown">
+          <select (change)="onSortChange($event.target.value)">
+            <option value="all">All</option>
+            <option value="high">High Priority</option>
+            <option value="medium">Medium Priority</option>
+            <option value="low">Low Priority</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="taskitemscont">
+        <div class="empty-state-text" id="empty-text"></div>
+        <div id="listoftasks">
+          <div class="taskitem" *ngFor="let task of sortedTasks" (click)="onTaskClick(task)" [ngClass]="{'completed': task.completed}">
+            <div class="task-text">
+              <p>{{ task.title }}</p>
+            </div>
+            <div class="task-buttons" style="margin-left: 500px; position: absolute;">
+              <button class="button is-small" (click)="saveTaskTitle(task.title)" routerLink="/edit-task">
+                <span class="icon">
+                  <i class="fa fa-edit"></i>
+                </span>
+              </button>
+              <button class="button is-danger is-small" (click)="onDeleteTaskClick(task.title)" style="margin-left: 10px;">
+                <span class="icon">
+                  <i class="fa fa-trash"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div routerLink="/new-task" class="addtask">
+          <span>+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  

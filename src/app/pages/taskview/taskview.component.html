@@ -1,0 +1,127 @@
+
+<div class="taskmanagement">
+   <div class="calendar">
+    <mat-form-field >
+      <label for="date" ></label>
+        <input id="date"  matInput [matDatepicker]="picker" placeholder= "Choose a date" [value]="selectedDate" (dateChange)="onDateSelected($event)">
+       <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+      </mat-form-field>
+      </div>
+      <div class="time">
+        
+      <ejs-timepicker id="time1"  [min]='minValue' [max]='maxValue' (change)="onTimeSelected1($event)"></ejs-timepicker>
+      <span>TO</span>
+      <ejs-timepicker id="time2" [min]='minValue2' [max]='maxValue2' (change)="onTimeSelected2($event)"></ejs-timepicker>
+      </div>
+     
+      <!--<div class="time"><input [ngxTimepicker]="timepicker" (timeSet)="onTimeSelected($any($event))">
+        <ngx-material-timepicker #timepicker></ngx-material-timepicker>
+      </div>-->
+      <!--
+      <div class="calendar">
+      <mat-form-field class="example-full-width">
+        
+        <input matInput [matDatepicker]="picker" [value]="selectedDate" (dateChange)="onDateSelected($event)" #datePickerInput>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+      </mat-form-field>
+    </div>-->
+      <div class="search">
+        <mat-icon aria-hidden="false" aria-label="search icon" fontIcon="search"></mat-icon>
+        <label for="search"></label>
+        <input id="search" type="text" (keypress)="handlekeypress($event)">
+      </div>
+    <div class="taskview">
+        <div class="list">
+            <div class="title"><h2>Lists</h2></div>
+            <div class="listitemscont">
+              <a (click)="onListselected(list.title)" class="listitem" *ngFor="let list of lists" [ngClass]="{'selected': list.title === selectedListTitle, 'selected-list': list.title === selectedListTitle}">
+                <!-- Your existing list item content here -->
+            
+            
+             <div class="dropdown is-hoverable is-right">
+              <div class="dropdown-trigger ">
+                <button class="button" aria-haspopup="true" style="overflow-x: auto; scrollbar-width: none;">
+                  <span>{{list.title}}</span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                <div class="dropdown-content" style="background-color: turquoise;">
+                  <div class="dropdown-item">
+                    <p>
+                      <span id="startTime">{{list.startTime | date: 'hh:mm a'}}</span>
+                      <span>-</span>
+                      <span id="endTime">{{list.endTime | date: 'hh:mm a'}}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+                <span id="listitemname">
+                  
+                </span>
+             </a>
+            </div>
+          <button class="addlist" routerLink="/new-list">Create list +</button>
+        </div> 
+        
+        <div class="tasks">
+          <div class="topbar">
+           <div class="title"><h2>Tasks</h2></div> 
+           <div class="dropdown">
+            <div class="dropdown is-hoverable is-right" >
+              <div class="dropdown-trigger">
+                <button class="button" aria-haspopup="true">
+                  <span class="icon is-small">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                <div class="dropdown-content">
+                  <a  class="dropdown-item" routerLink="/edit-list"> Edit </a>
+                  <a  class="dropdown-item has-text-danger" (click)="onDeleteClickList()"> Delete </a>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+            
+            
+            
+        <div class="taskitemscont">
+          <div class="empty-state-text" id="empty-text"></div>
+          <div id="listoftasks">
+            <div class="taskitem" *ngFor="let task of tasks" (click)="onTaskClick(task)" [ngClass]="{'completed':task.completed}">
+              <div class="task-text">
+                <p>{{ task.title }}</p>
+              </div>
+              <div class="task-buttons" style="margin-left: 500px; position: absolute;">
+    
+                <button class="button is-small" (click)="saveTaskTitle(task.title)" routerLink="/edit-task" >
+                  <span class="icon">
+                    <i class="fa fa-edit "></i>
+                  </span>
+                </button>
+    
+                <button class="button is-danger is-small" (click)="onDeleteTaskClick(task.title)"  style="margin-left: 10px;">
+                  <span class="icon">
+                    <i class="fa fa-trash"></i>
+                  </span>
+                </button>
+    
+              </div>
+            </div>
+          </div>
+            <div routerLink="/new-task" class="addtask">
+                <span>+</span>
+            </div>
+            </div>
+        </div>
+        </div>
+      
+        
+        
+        

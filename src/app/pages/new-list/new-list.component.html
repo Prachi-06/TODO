@@ -1,0 +1,30 @@
+<div class="centercontent">
+  <div class="createList">
+     <div class="title"><h2>Create a new List</h2></div>
+      <div class="selected">
+        <div class="selected-date" *ngIf="selectedDate"><span class="icon">
+          <i class="fa fa-calendar"></i>
+        </span>{{ selectedDate | date: 'dd/MM/yyyy' }}</div>
+        <div class="selected-time-range">
+          <div class="startTime" *ngIf="startTime"><span class="icon"><i class="fa-solid fa-hourglass-start"></i></span>{{ startTime | date: 'hh:mm a' }}</div>
+
+          <div class="endTime" *ngIf="endTime"><span class="icon"><i class="fa-solid fa-hourglass-end"></i></span>{{ endTime | date: 'hh:mm a' }}</div>
+        </div>
+      </div>
+      <label for="listtitle"></label>
+      <input id="listtitle" #listtitle type="text" placeholder="Enter the title">
+      <div class="errormessage1" *ngIf="errormessage1">
+        <p>{{errormessage1}}</p>
+      </div>
+      <div class="buttons">
+        <button id="add" (click)="createNewList(listtitle.value,selectedDate!)">Create</button>
+        <span><button id="cancel" (click)="goback()">Back</button></span>
+      </div>
+      <div class="message" *ngIf="message">
+        <p>{{message}}</p>
+      </div>
+      <div *ngIf="errormessage">
+        <p>{{errormessage}}</p>
+      </div>
+  </div>
+</div>
